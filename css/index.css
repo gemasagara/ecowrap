@@ -309,7 +309,6 @@ footer {
 
 /* Content Layout - Side by Side Columns */
 #content-text > div {
-    padding-left: 80px;
     display: flex;
     justify-content: center;
     width: 100%;
