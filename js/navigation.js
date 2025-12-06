@@ -1,3 +1,85 @@
+// Authors data
+const authorsData = [
+    {
+        name: 'Fachri Richi Pratama',
+        dateOfBirth: 'Tangerang, June 23rd 2010',
+        school: 'MAN 13 Jakarta Selatan',
+        quote: 'With great power, comes great responsibility ',
+        instagram: '@leonardo_da_rici',
+        instagram_url: 'https://www.instagram.com/leonardo_da_rici/',
+        image: './images/rici.jpg'
+    },
+    {
+        name: 'Naura Nur Umaimah',
+        dateOfBirth: 'Purworejo, May 18th 2010',
+        school: 'MAN 13 Jakarta Selatan',
+        quote: "Don't let yesterday's failure hold back today's steps",
+        instagram: '@midnight_feat.nura',
+        instagram_url: 'https://www.instagram.com/midnight_feat.nura/',
+        image: './images/naura.jpg'
+    },
+    {
+        name: 'Shafa Ghina Khaerunnisa',
+        dateOfBirth: 'Brebes, June 6th 2010',
+        school: 'MAN 13 Jakarta Selatan',
+        quote: "If plan A doesn't work don't worry the alphabet has 25 more letters",
+        instagram: '@blueberryyzsz',
+        instagram_url: 'https://www.instagram.com/blueberryyzsz',
+        image: './images/shafa.jpg'
+    },
+    {
+        name: 'Khansa Nuralifia',
+        dateOfBirth: 'Depok, January 9th 2010',
+        school: 'MAN 13 Jakarta Selatan',
+        quote: "My motivation is deadlines—if I’m not being chased by them, I’ll definitely fall asleep",
+        instagram: '@khf_ns',
+        instagram_url: 'https://www.instagram.com/khf_ns',
+        image: './images/khansa.jpg'
+    },
+    {
+        name: 'Hana Prawisya Ardiarini',
+        dateOfBirth: 'Jakarta, April 23rd 2010',
+        school: 'MAN 13 Jakarta Selatan',
+        quote: "Never thought me and my teeth are the same, we both hate calculus.",
+        instagram: '@hnna_pw',
+        instagram_url: 'https://www.instagram.com/hnna_pw',
+        image: './images/hana.jpg'
+    },
+    {
+        name: 'Azjima Ahzha Syahra',
+        dateOfBirth: 'Jakarta, July 30th 2010',
+        school: 'MAN 13 Jakarta Selatan',
+        quote: "We are stardust shaped into something that can wonder why the stars ever burned.",
+        instagram: '@ajiyeema',
+        instagram_url: 'https://www.instagram.com/ajiyeema',
+        image: './images/azjima.jpg'
+    }
+];
+
+// Function to generate authors HTML
+function generateAuthorsHTML() {
+    return authorsData.map(author => `
+        <div class="author-card">
+            <img src="${author.image}" alt="${author.name}" class="author-image">
+            <div class="author-info">
+                <h3>${author.name}</h3>
+                <div class="author-detail">
+                    <strong>Born in:</strong> ${author.dateOfBirth}
+                </div>
+                <div class="author-detail">
+                    <strong>Student at:</strong> ${author.school}
+                </div>
+                <div class="author-quote">
+                    "${author.quote}"
+                </div>
+                <div class="author-instagram">
+                    <a href="${author.instagram_url}" target="_blank">${author.instagram}</a>
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
 // Page content data
 const pages = {
     home: {
@@ -26,8 +108,8 @@ const pages = {
     tools: {
         title: 'Tools and Ingredients',
         content: `
-            <div>
-                <div>
+            <div class="list-container">
+                <div class="list-element">
                     <h3>Edible Wrapper</h3>
                     <p>
                         <b>Ingredients:</b><br>
@@ -53,7 +135,7 @@ const pages = {
                         10. Airtight container<br>
                     </p>
                 </div>
-                <div>
+                <div class="list-element">
                     <h3>Spirulina Tempe Chips</h3>
                     <p>
                         <b>Ingredients:</b><br>
@@ -91,6 +173,12 @@ const pages = {
                 In addition, the edible EcoWrap offers extra advantages because it is made from natural, safe-to-consume ingredients, supports zero-waste principles, and minimizes exposure to chemicals found in conventional plastic packaging. This combination makes the product not only delicious and practical but also nourishing and environmentally friendly.
             </p>
         `
+    },
+    authors: {
+        title: 'Author Profiles',
+        get content() {
+            return `<div class="authors-grid">${generateAuthorsHTML()}</div>`;
+        }
     }
 };
 
